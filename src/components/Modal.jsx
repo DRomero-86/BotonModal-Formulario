@@ -1,4 +1,7 @@
 import { Fragment, useState } from "react";
+import Btn from "./Btn"
+import Label from "./Label";
+import Input from "./Input";
 
 
 const Modal = () => {
@@ -10,9 +13,9 @@ const Modal = () => {
 
     return (
         <Fragment>
-            <button className="btn btn-primary" onClick={toggle}>
-                Abrir modal
-            </button>
+            <div onClick={toggle} >
+                <Btn clase="btn btn-primary" name="Abrir modal" /> 
+            </div>
 
             <div className={`modal ${show && "show"}`} onClick={toggle}>
                 <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -24,18 +27,20 @@ const Modal = () => {
 
                     <div className="modal-body">
                         <div className="form-control">
-                            <label>Nombre</label>
-                            <input type="text" placeholder="Escriba su nombre"/>
-                            <label>Dirección</label>
-                            <input type="text" />
-                            <label>Fecha de Nac</label>
-                            <input type="date"/>
+                            <Label para="name" description="Nombre"/>
+                            <Input type="text" id="name"/>
+                            <Label para="name" description="Apellido"/>
+                            <Input type="text" id="name"/>
+                            <Label para="email" description="Email"/>
+                            <Input type="email" id="email"/>
+                            <Label para="date" description="FechaNac"/>
+                            <Input type="date" id="date"/>                          
                         </div>
                     </div>
 
                     <div className="modal-footer">
-                        <button className="btn btn-cancel">Cancelar</button>
-                        <button className="btn btn-primary">Guardar</button>
+                        <Btn clase="btn-cancel" name="Cancelar"/>
+                        <Btn clase="btn-primary" name="Enviar"/>
                     </div>
 
                 </div>
